@@ -1,0 +1,140 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    max-width: 100%;
+    background-color: #ff3131;
+}
+
+header {
+    background-color: #ff3131;
+    font-family: "Asset", serif;
+    color: #ffde59;
+    border-bottom: 2px black solid;
+    padding: 15px;
+}
+
+.gallery {
+    max-width: 95%;
+    margin: 20px auto;
+    display: grid;
+    background-color: white;
+    list-style: none;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5,auto-fit);
+    grid-gap: 10px;
+    background-color: #ff3131;
+    font-family: "Playfair Display", serif;
+    position: relative;
+}
+
+.satu {
+    border: 1px black solid;
+    border-radius: 25px;
+}
+
+
+figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffde59;
+}
+
+.gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    width: 0;
+    height: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    padding: 100px;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    animation: fadeajalah .2s;
+}
+
+.overlay img {
+    display: block;
+    width: 50%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.overlay .close {
+    position: absolute;
+    right: 25px;
+    top: -35px;
+    font-size: 106px;
+    text-decoration: none;
+    color: black;
+    font-family: "Playfair Display", serif;
+    opacity: 0;
+
+}
+
+.overlay:target .close {
+    opacity: 1;
+}
+/* responsive tablet */
+@media (max-width:1400px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    }
+    .overlay img {
+        width: 80%;
+    }
+    .overlay {
+        padding: 50px;
+    }
+    .overlay .close {
+        font-size: 76px;
+        right: 10px;
+    }
+}
+/* responsive handphone */
+@media (max-width:500px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .overlay img {
+        width: 100%;
+    }
+}
+/* animation */
+@keyframes fadeajalah {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    75% {
+        opacity: .7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
